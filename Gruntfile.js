@@ -78,8 +78,11 @@ module.exports = function(grunt) {
 		connect: {
 			server: {
 				options: {
-					port: port,
-					base: '.'
+					port: 3000,
+					keepalive: true,
+					livereload: true,
+					base: '.',
+					hostname: '*'
 				}
 			}
 		},
@@ -104,6 +107,24 @@ module.exports = function(grunt) {
 				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
 				tasks: 'themes'
 			}
+		},
+
+		bower_concat: {
+			all: {
+				dest: 'js/lib/components.js',
+				exclude: [
+//					'jquery',
+//					'modernizr'
+				],
+				dependencies: {
+//					'underscore': 'jquery',
+//					'backbone': 'underscore',
+//					'jquery-mousewheel': 'jquery'
+				},
+				bowerOptions: {
+					relative: false
+				}
+			}
 		}
 
 	});
@@ -116,6 +137,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
+    grunt.loadNpmTasks( 'grunt-bower-concat' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task

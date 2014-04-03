@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>JS presentation</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hanson.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<p>The title of today&rsquo;s session is:</p>
+			<img src="img/js.jpg" alt="" style="width: 30%" />
+			<h1 class="big">You can&rsquo;t do that in Javascript!</h1>
+		</section>
+
+		<section>
+			<section>
+				<h1>Why are we here?</h1>
+				<ul>
+					<li class="fragment">Because Javascript = serious business</li>
+					<li class="fragment">To dispel some misconceptions</li>
+					<li class="fragment">To show you some <strong>patterns</strong>, <strong>libraries</strong>,
+						and <strong>tools</strong> to help you make bigger, better Javascript programs.</li>
+				</ul>
+			</section
+					>
+			<section>
+				<h1>Some quick facts</h1>
+				<ul>
+					<li>According to the <a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">TIOBE
+						Programming Community Index</a>, Javascript is one of the top 10 most in-demand programming languages
+						based on an aggregate of web searches.</li>
+				</ul>
+			</section>
+
+			<section>
+				<img class="pull-right" src="img/languages.png" alt=""/>
+			</section>
+
+			<section>
+				<h1>What things have you heard about Javascript?</h1>
+				<ul>
+					<li class="fragment">It&rsquo;s just a scripting language</li>
+					<li class="fragment">It&rsquo;s slow</li>
+					<li class="fragment">It&rsquo;s badly designed</li>
+					<li class="fragment">It lacks object-oriented capabilities</li>
+				</ul>
+			</section>
+			<section>
+				<blockquote>
+					&ldquo;The first versions of JavaScript were quite weak. They lacked exception handling, inner functions, and inheritance. In its present form, it is now a complete object-oriented programming language. But many opinions of the language are based on its immature forms.&rdquo;
+
+				</blockquote>
+				<cite>&ndash; Douglas Crockford</cite>
+			</section>
+
+			<section>
+				<h1>A short history of Javascript</h1>
+				<ul>
+					<li>Javascript 1.0 – March 1996 – Netscape 2.0</li>
+					<li>Javascript 1.3 – October 1998 – a.k.a. ECMA-262</li>
+					<li>Javascript 1.5 – November 2000 (ECMAScript 3)</li>
+					<li>~2001-2008 – &ldquo;Javascript 2.0&rdquo; (ECMAScript 4)</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h1>ECMAscript 4 failed</h1>
+				<ul>
+					<li>Too many proposals, too little agreement.</li>
+					<li>Actionscript 3 is similar to what ECMAScript 4.0 might have been.</li>
+					<li>To get ready for ECMAScript 4, browser manufacturers defined <code>class</code>, <code>export</code>,
+						<code>import</code>, <code>enum</code>, <code>extends</code>, and <code>super</code> as
+						&ldquo;future use reserved words&rdquo;. We can&rsquo;t use <code>class</code> as a variable name in
+						Javascript, but we can&rsquo;t create classes either.</li>
+					<li>
+						ECMAScript 5, a scaled back subset of ECMAScript 4, was released in 2009.
+						<ul>
+							<li>Built-in support for JSON, some useful <code>Object</code> and <code>Array</code> methods</li>
+						</ul>
+					</li>
+
+				</ul>
+				<p><p>
+			</section>
+
+			<section>
+				<h1>The future</h1>
+				<ul>
+					<li><a href="http://people.mozilla.org/~jorendorff/es6-draft.html">ECMAScript 6</a> / &ldquo;Harmony&rdquo; is scheduled for completion in December 2013&hellip; but
+						<a href="https://mail.mozilla.org/pipermail/es-discuss/">we&rsquo;ll see</a></li>
+					<li>Should include support for
+						<ul>
+							<li>Classes</li>
+							<li>Interfaces</li>
+							<li>Modules</li>
+							<li>Synchronous and asynchronous dependency management</li>
+						</ul>
+						</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>What can we do now?</h1>
+
+				<ul>
+					<li>
+						Transpiling / metalanguages
+						<ul>
+							<li>Traceur compiler</li>
+							<li>CoffeeScript</li>
+							<li>TypeScript</li>
+						</ul>
+					</li>
+					<li>
+						Dependency management
+						<ul>
+							<li>CommonJS (Node.JS modules)</li>
+							<li>Asynchronous Module Definition (Require.js)</li>
+						</ul>
+					</li>
+					<li>
+						Emulate classic OO structures using currently-supported patterns
+					</li>
+				</ul>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h1 class="big">4&frac12; Useful Patterns</h1>
+			</section>
+
+			<section>
+				<h1>Review of OO Terminology</h1>
+				<ul>
+					<li class="fragment">Class</li>
+					<li class="fragment">Object</li>
+					<li class="fragment">Module / package</li>
+					<li class="fragment">Property</li>
+					<li class="fragment">Method</li>
+					<li class="fragment">Inheritance</li>
+					<li class="fragment">Polymorphism</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Pattern 0: Closure</h1>
+				<ul>
+					<li>Javascript has function-level scope. Properties declared with the
+					<code>var</code> keyword are scoped to the function in which they&rsquo;re called.
+					
+					<pre class="fade-out"><code class="javascript">var myNumber = 1;
+
+function test() {
+	var myNumber = 2;
+};
+test();
+
+console.log(myNumber);</code></pre></li>
+					<li>What will the <code>console.log</code> output?</li>
+				</ul>
+
+				
+			</section>
+
+			<section>
+				<h1>Pattern 0.5: IIFE</h1>
+				<ul>
+					<li>IIFE (Pronounced &ldquo;iffy&rdquo;) = Immediately invoked function expression</li>
+					<li>An IIFE is a function that declares and immediately calls itself:
+					<pre><code class="javascript">(function() {
+	// Doin' thangs
+}());</code></pre>
+					</li>
+					<li>Why the extra braces?</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Pattern 0.5: IIFE</h1>
+				<ul>
+					<li>IIFE is the building block of the rest of the patterns we&rsquo;re going to see</li>
+					<li>The general plan:
+						<ol>
+							<li>Create an IIFE / closure as a container</li>
+							<li>Fill it with variables and methods</li>
+							<li>Return a single namespaced object (a module, a class) to the global scope</li>
+							<li class="fragment">???</li>
+							<li class="fragment">Profit</li>
+						</ol>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Pattern 1: Module</h1>
+				<ul>
+					<li>A module is a closure that returns a single, namespaced <code>object</code>. We can attach
+					properties and methods to the object.</li>
+					<li>Module methods and properties are static. We assume there&rsquo;s only one instance of a module in
+						memory at any time.</li>
+					<li>Useful for bringing several loosely related or unrelated functions into a single namespace.
+						<p>Examples:</p>
+						<ul>
+							<li>A section controller with a method per page</li>
+							<li>A utility library</li>
+						</ul>
+					</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<h1>Pattern 1: Module</h1>
+				<pre><code class="javascript">(function() {
+    var module = {};
+
+    var privateMethod = function() {
+        console.log('Go away, I\'m private!');
+    };
+
+    module.doSomething = function() {
+        console.log('I\'m helping!');
+    };
+
+    module.doSomethingElse = function() {
+        privateMethod(); // Calls a method private to the closure
+    };
+
+    // Export the module into global scope
+    window.myModule = module;
+}());
+
+// Call the module from somewhere else
+myModule.doSomething();
+myModule.doSomethingElse();
+</code></pre>
+			</section>
+
+			<section>
+				<h1>Pattern 2: Class</h1>
+				<ul>
+					<li>A class is a closure that returns a single, namespaced <code>function</code> (a constructor)
+						which may contain many public and private functions and properties.</li>
+					<li>Class methods and properties can be instanced or static. There can be many instances of a class
+						at one time and they can all have their own property values.</li>
+					<li>When creating a class, we attach instance methods / properties to the object's <code>prototype</code>.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Pattern 2: Class</h1>
+				<pre><code class="javascript">(function() {
+    // Can't use "class" because it's a reserved word in Javascript
+    var module = function() {
+        console.log('This is the constructor');
+    };
+
+    // Static methods and properties
+    module.staticMethod = function() {
+        console.log('I\'m a static method!');
+    };
+    module.staticProperty = "STATIC";
+
+    // Instance methods and properties use prototype
+    module.prototype.instanceMethod = function() {
+        console.log('I\'m an instance method!');
+    };
+    module.prototype.instanceProperty = "INSTANCED";
+
+    // By convention, classes are TitleCase
+    window.MyClass = module;
+}());</code></pre>
+			</section>
+
+			<section>
+				<h1>Pattern 2: Class</h1>
+				<ul>
+					<li>Create an instance of a class with the <code>new</code> keyword.</li>
+				</ul>
+				<pre><code class="javascript">// Create a new instance
+var mc = new MyClass();
+
+// Calling static methods
+MyClass.staticMethod();
+console.log(MyClass.staticProperty);
+
+// Calling instance methods
+mc.instanceMethod();
+console.log(mc.instanceProperty);</code></pre>
+			</section>
+
+			<section>
+				<h1>Extending a Class</h1>
+				<ul>
+					<li>Javascript lacks true classical inheritance</li>
+					<li>What it has is <em>prototypal</em> inheritance</li>
+					<li>Object A can make Object B its prototype. That gives it access to all of Object B&rsquo;s methods and makes it an instance of Object A (polymorphism).</li>
+					<li>HBS library has an extend method that makes this simple</li>
+					<li>
+                    <pre><code>var module = HBS.extend(APP.MyClass, function() {
+    this.init();
+});</code></pre>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Extending Gotchas</h1>
+				<ul>
+					<li>Use <code>.call(this)</code> when calling <code>_super</code> methods from a child class.</li>
+					<li>On older browsers, we have to create an instance of an object to extend it, so avoid
+						<code>console.log</code> or interacting with the DOM in the constructor.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Pattern 3: Singleton</h1>
+				<ul>
+					<li>A Singleton is a class that can only have one instance at any given time.</li>
+					<li>Use a Singleton when you need multiple classes to safely share a single object regardless of
+						load order.</li>
+					<li>Trying to construct a Singleton with the new keyword returns an error.</li>
+					<li>Instead we use static <code>getInstance()</code> method to create or return the instance of the Singleton.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Pattern 3: Singleton</h1>
+                <pre><code class="javascript">(function() {
+    var singleton = function () {
+        throw new Error('Use MySingleton.getInstance()!');
+    };
+
+    var init = function() {
+        // The init method creates the inner class instance
+        var module = function() { };
+
+        module.prototype.doSomething = function() {
+            console.log('I\'m a Singleton!');
+        };
+
+        return module.prototype;
+    };
+
+    singleton.getInstance = function () {
+        this.instance = this.instance || init();
+        return this.instance;
+    };
+
+    window.MySingleton = singleton;
+}());</code></pre>
+			</section>
+
+			<section>
+				<h1>Pattern 4: Widget</h1>
+				<ul>
+					<li>A widget is a class that operates on or attaches functionality to DOM elements</li>
+					<li>Takes a DOM element or a jQuery selector as an argument</li>
+					<li>Has default behavior that can be modified by passing an options object</li>
+					<li>Exposes callback methods so that other parts of the program can respond to events thrown and handled by the plugin</li>
+					<li><strong>Bonus</strong>: Attaches a reference to itself (as a data-attribute) to the DOM element</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<h1>Pattern 4: Widget</h1>
+        <pre><code>(function() {
+    var module = function(target, options) {
+        var instance = this;
+
+        return $(target).each(function() {
+            instance.init(this, options || {});
+        });
+    };
+
+    module.prototype.defaults = {
+        color: '#f00'
+    };
+
+    module.prototype.init = function(target, options) {
+        this.options = $.extend({}, this.defaults, options);
+
+        this.domElement = $(target);
+
+        this.domElement.data('widget-mywidget', this);
+
+        // This is just a sample of what you might do with a widget
+        this.domElement.css(this.options);
+    };
+
+    window.MyWidget = module;
+}());</code></pre>
+            </section>
+
+        </section>
+
+		<section>
+			<section>
+				<h1 class="big">Introducing HanBootstrapper</h1>
+			</section>
+
+			<section>
+				<h1>HanBootstrapper</h1>
+				<ul>
+					<li>HBS (HanBootstrapper) is a helper library for creating and working with Javascript code modules.</li>
+					<li>It has helper functions to help you create and namespace your code, and also a mechanism for bootstrapping multi-page web applications.</li>
+					<li>It&rsquo;s not quite a framework, more of a utility.</li>
+					<li>Two new Git repos are available to help you use HBS on your projects.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>HBS Standard</h1>
+				<ul>
+					<li>HanBootstrap Starter Standard - for most projects: <a href="http://stash.hansoninc.local:7990/projects/HPI/repos/hanbootstrap-starter-standard/browse">http://stash.hansoninc.local:7990/projects/HPI/repos/<br />
+						hanbootstrap-starter-standard/browse</a></li>
+					<li>Replaces the old <strong>hanson-frontend-boilerplate</strong> repo</li>
+					<li>Contains examples of the 4 patterns we've reviewed</li>
+					<li>Has utilities for bootstrapping code on a multi-page site</li>
+					<li>Doesn&rsquo;t take care of dependency management</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Bootstrapping with HBS</h1>
+
+				<ul>
+					<li>
+						For bootstrapping to work, you need to have loaded three Javascript modules:
+						<ul>
+							<li><code>hbs.js</code></li>
+							<li>A global JS file (usually <code>main.js</code>)</li>
+							<li>An optional section controller, e.g. <code>mysection.js</code></li>
+						</ul>
+					</li>
+					<li>
+						<p>Main.js initializes all the Javascript that needs to run on every page of the site, and then
+							calls <code>HBS.initPage()</code>.</p>
+        <pre><code>$(document).ready(function() {
+    module.init();
+    HBS.initPage();
+});</code></pre>
+
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Bootstrapping with HBS</h1>
+
+				<ul>
+					<li>
+						HBS.initPage() looks for two data attributes attached to the <code>body</code> element:
+						<pre><code>&lt;body data-section=&quot;APP.sections.mySection&quot; data-page=&quot;myPage&quot;&gt;</code></pre>
+					</li>
+					<li>HBS attempts to find a loaded JS module matching <code>data-section</code> (e.g. <code>APP.sections.mySection</code>).
+						If that module exists, HBS checks it for a method called <code>init()</code>. This method is assumed
+						to contain any setup code for the entire section and is run if found.</li>
+					<li>Next, HBS tries to run a method corresponding to <code>data-page</code>, e.g. <code>APP.sections.mySection.myPage()</code>.</li>
+
+				</ul>
+			</section>
+
+			<section>
+				<h1>Bootstrapping gotchas</h1>
+				<ul>
+					<li>By default, HBS doesn't actually load any Javascript. You still need to do that using
+						<code>&lt;script&gt;</code> tags.
+						<ul>
+							<li>There is an experimental autoloading feature, but it has not been tested and may snatch
+								yo' people up. Check <code>hbs.js</code> for more information and use with caution.</li>
+						</ul>
+					</li>
+					<li>There is not a 1:1 correlation between your class names and your file names.
+					Your file path might be <code>APP/sections/mysection.js</code> but the class might
+					be <code>APP.sections.mySection</code>.</li>
+					<li>If you want to be a real rockstar, use HBS/Require.js</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>HBS/Require.js</h1>
+				<ul>
+					<li><a href="http://stash.hansoninc.local:7990/projects/HPI/repos/hanbootstrap-starter-requirejs/browse">http://stash.hansoninc.local:7990/projects/HPI/repos/<br />
+						hanbootstrap-starter-Require.js/browse</a></li>
+					<li>Does everything HBS does but also introduces Require.js for dependency management</li>
+					<li>Has Require.js compilation enabled so you can deploy a pre-built version of your JS.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Bootstrapping with Require.js</h1>
+				<ul>
+					<li>Require.js will load your main JS and your section controller for you automatically:
+						<pre><code>&lt;script data-main=&quot;js/APP/main&quot; src=&quot;js/lib/require.js&quot;&gt;</code></pre>
+					</li>
+					<li>Bootstrapping looks slightly different:
+						<pre><code>&lt;body data-section=&quot;APP/sections/mySection&quot; data-page=&quot;myPage&quot;&gt;</code></pre>
+					</li>
+				</ul>
+			</section>
+
+		</section>
+
+		<section>
+			<section>
+				<h1 class="big">Dependency management</h1>
+			</section>
+
+			<section>
+				<h1>Why dependency management?</h1>
+
+				<ul>
+					<li><blockquote>&ldquo;[D]ependencies are very weakly stated: the developer needs to know the right dependency order. For instance, The file containing Backbone cannot come before the jQuery tag.&rdquo;</blockquote></li>
+					<li>Discrete classes = looser coupling, better maintainability and encapsulation</li>
+					<li>The more classes you have, the more likely you are to run into out-of-order dependencies</li>
+					<li>Script tags are not a dependency management strategy</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Some popular methods</h1>
+				<ul>
+					<li>CommonJS modules
+						<ul>
+							<li>Developed as part of a larger project to separate Javascript from the browser</li>
+							<li>Popular implementation is Node.JS modules</li>
+							<li>Synchronous</li>
+							<li>Not particularly browser-friendly</li>
+						</ul>
+					</li>
+					<li>Asynchronous Module Definition (AMD)
+						<ul>
+							<li>Developed to address shortcomings in CommonJS modules</li>
+							<li>Popular implementation is Require.js</li>
+							<li>Asynchronous, well-suited for web use</li>
+							<li>We&rsquo;ve used it successfully on projects such as HGTV Admin, Menards Shelving, Design EyeQ</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>About Require.js</h1>
+				<ul>
+					<li><img class="pull-right" src="img/requirejs.png" style="width: 250px; margin: 2em 0;" alt="Require.js"/>
+						<blockquote>&ldquo;Require.js is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node. Using a modular script loader like Require.js will improve the speed and quality of your code.&rdquo;</blockquote></li>
+					<li><a href="http://requirejs.org/">Require.js</a> helps you manage dependencies so you don&rsquo;t have to worry about the order in which scripts are loaded</li>
+					<li>Has a powerful build process so you can deploy pre-built versions of your script to production.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>About Require.js</h1>
+				<ul>
+					<li>Require.js has two basic methods, <code>require()</code> and <code>define()</code>.</li>
+					<li><code>require()</code> loads scripts asynchronously based on a slash-separated path, like this:
+						<pre><code>require("APP/controllers/main");</code></pre>
+					</li>
+					<li><code>define()</code> exports Javascript modules in such a way that require can keep track of them.
+					Require.js keeps a registry of modules it&rsquo;s already loaded, so if you need a class more than once it isn&rsquo;t loaded multiple times.</li>
+
+				</ul>
+			</section>
+
+			<section>
+				<h1>What if my code isn&rsquo;t in AMD format?</h1>
+				<ul>
+					<li>
+						No problem. Require.js&rsquo;s config file allows you to shim non-AMD Javascript. Shimming looks like this:
+						<pre><code>shim: {
+    'lib/jqueryui': {
+        deps: ['lib/jquery']
+    }
+}</code></pre>
+					</li>
+					<li>Now I can <code>require('lib/jqueryui')</code> in my classes, and it will added the AMD registry.</li>
+					<li>Even cooler, I can shim dependencies to make completely sure all the pre-reqs get loaded first.</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<h1>Loader Plugins</h1>
+				<ul>
+					<li><blockquote>
+						&ldquo;Require.js supports loader plugins. This is a way to support dependencies that are not plain JS files, but are still important for a script to have loaded before it can do its work. The Require.js wiki has a
+						<a href="https://github.com/jrburke/RequireJS/wiki/Plugins">list of plugins</a>. This section talks about some specific plugins that are maintained alongside Require.js:&rdquo;
+					</blockquote></li>
+					<li>Example, The text loader plugin:
+						<pre><code>require('text!templates/applyProducts/_products-line.hbs');</code></pre>
+					</li>
+					<li>This plugin can be used to load plain text files into a Javascript variable. The Design EyeQ
+						team used it to load Handlebars templates.</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<h1>Other Plugins</h1>
+				<ul>
+					<li>Other plugins include resource bundles (i18n), order (force scripts to load in a order, shouldn&rsquo;t be necessary if you have a proper shim config), JSON, web fonts, images, and more:<br />
+						<a href="https://github.com/jrburke/Require.js/wiki/Plugins">https://github.com/jrburke/Require.js/wiki/Plugins</a>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Building and Deploying Require.js</h1>
+				<ul>
+					<li>The <strong>Require.js optimizer</strong> combines related scripts together into build layers and minifies them with UglifyJS or Closure Compiler.</li>
+					<li>It scans your <code>require()</code> statements, loads all the dependencies and
+						inlines them into the top of the file. Then it minifies everything and outputs
+						it to a directory of your choosing (we prefer <code>js-built</code>).</li>
+					<li>This makes it trivial to select the <code>/content/js</code> directory (for dev)
+						or <code>/content/js-built</code> (for staging and production).
+						Nothing else needs to change in your code or your config!</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Speed Improvements</h1>
+				<ul>
+					<li>
+						<p>Unbuilt JS:</p>
+						<img src="img/unbuilt.jpg" alt=""/>
+					</li>
+					<li>
+						<p>Built JS:</p>
+						<img src="img/built.jpg" alt=""/>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Building and Deploying Require.js</h1>
+				<ul>
+					<li>The Require.js optimizer can be run with node or with Rhino for Java. Node is much, much faster. On Menards Shelving, the Require.js build takes ~60 seconds locally with Node, but over 10 minutes(!!) when run as part of the build using Rhino.</li>
+					<li>To improve performance, set <code class="nobr">skipDirOptimize: true</code>, and minify your third-party JS libraries some other way.</li>
+				</ul>
+			</section>
+
+
+			<section>
+				<h1>Build config file &ndash; modules</h1>
+				<ul>
+					<li>
+						The &ldquo;classic&rdquo; scenario for the Require.js optimizer is a single-page app, where one Javascript rules them all, but it can be made to work on a multi-page app too. To do this we need to set up different levels of modules:
+					</li>
+					<li>
+						<pre><code class="javascript">modules: [
+    // First set up the common build layer.
+    {
+        // Corresponds to main.js
+        name: 'main'
+    },
+
+    // Now set up a build layer for each main layer, but exclude
+    // the common one.
+    {
+        // Corresponds to APP/controllers/section1.js, excludes
+        // anything previously included in main.js
+        name: 'APP/controllers/section1',
+        exclude: ['main']
+    }
+}</code></pre>
+					</li>
+				</ul>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h1 class="big">Documentation <span class="nobr">with JSDoc</span></h1>
+			</section>
+
+			<section>
+				<h1>About JSDoc</h1>
+				<ul>
+					<li>You can generate <a href="file:///C:/workspaces/HPI/hanbootstrap-starter-standard/docs/jsdoc/index.html">HTML documentation</a> for Javascript using JSDoc.</li>
+					<li>JSDoc 3.0 runs in Node.js and can be installed with npm <em>(more on this in a bit)</em>.</li>
+					<li>Syntax is very similar to Javadoc.</li>
+					<li>Once installed, navigate to where your JS files are located in a terminal and run this command:
+						<pre class="large"><code>jsdoc -r *</code></pre></li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>JSDoc Syntax</h1>
+				<ul>
+					<li>Any comment beginning with <code>/**</code> is interpreted as a JSDoc comment.
+						There are <a href="http://usejsdoc.org/#JSDoc3_Tag_Dictionary">many tags</a> beginning with <br /><code>@</code> that help make your docs better.
+						<pre><code>/**
+ * @constructor
+ * @alias MEN.ui.configurator.VizProduct
+ * @extends MEN.ui.configurator.VizItem
+ * @classdesc A component of a design, such as a shelf, basket or
+   upright. VizProducts can be manipulated and resized
+ * by users and can have rules applied to them.
+ */</code></pre>
+					</li>
+					<li>There are lots of ways to document common patterns.</li>
+					<li>Our front-end dev templates have examples of how to document the four patterns we learned today.</li>
+				</ul>
+
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h1 class="big">Build Tools</h1>
+			</section>
+
+			<section>
+				<h1>Node.js and NPM</h1>
+				<ul>
+					<li>
+						<img class="pull-right" style="width: 35%" src="img/nodelogo.png" alt="Node.js logo"/>
+						<a href="http://nodejs.org">Node.js</a> is a standalone Javascript runtime based on Google&rsquo;s V8 engine. It can be used to build web servers and other networky things.</li>
+					<li>I know virtually nothing about Node in that capacity, but I do know that it is the must-have command line tool for the serious Javascript developer.</li>
+					<li>Node and its sister tool <strong>npm</strong> are the foundation for many other totally sweet JS tools.</li>
+				</ul>
+			</section>
+			<section>
+				<h1>NPM</h1>
+				<ul>
+					<li>
+						<img class="pull-right" src="img/npm-logo.png" style="width: 35%" alt="NPM logo"/>
+						NPM is a package manager for node. You might think it stands for &ldquo;Node package manager&rdquo;, but you would be wrong. According to the author:</li>
+					<li><blockquote>&ldquo;Contrary to the belief of many, "npm" is not in fact an abbreviation for "Node Package Manager". It is a recursive bacronymic abbreviation for "npm is not an acronym".&rdquo;</blockquote></li>
+				</ul>
+			</section>
+			<section>
+				<h1>NPM</h1>
+				<ul>
+					<li>
+						Lots of cool and very smart people publish Node JS modules to the <a href="https://npmjs.org/">NPM registry</a>. Once you have installed Node and NPM, you can do things like this from the command line:
+						<pre class="medium"><code>npm install underscore</code></pre>
+						That will install underscore to the current folder.
+					</li>
+					<li>
+						You can install things globally like so:
+						<pre class="medium"><code>npm install -g bower</code></pre>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Grunt</h1>
+				<ul>
+					<li>
+						<img class="pull-right" src="img/grunt.png" alt="Grunt logo" style="width: 30%" />
+						Grunt is a Node-based task runner. It&rsquo;s broadly similar to <strong>ant</strong>, or
+						<strong>make</strong>, or <strong>rake </strong> or <strong>cake</strong>.</li>
+					<li>Here are some things Grunt can do:
+						<ul>
+							<li>Lint and minify your JS</li>
+							<li>Compile a LESS file to CSS</li>
+							<li>Copy assets from one folder to another</li>
+							<li>Build HTML files by compositing together templates</li>
+							<li>Start a local web server with live reload</li>
+							<li>Run unit tests</li>
+							<li>Generate documentation</li>
+						</ul>
+					</li>
+					<li>Seriously, the list of gruntJS plugins is disgustingly long: <a href="http://gruntjs.com/plugins">http://gruntjs.com/plugins</a></li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Installing Grunt</h1>
+				<ul>
+					<li>
+						You can start working with GruntJS by installing the <code>grunt-cli</code> npm package:
+						<pre class="medium"><code>npm install -g grunt-cli</code></pre></li>
+					<li>Now you can run the <kbd>grunt</kbd> command from any directory. Grunt will look for a file called
+						<code>Gruntfile.js</code> to tell it what to do next.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Grunt, continued</h1>
+				<ul>
+					<li>
+						Our new front-end dev templates have some Grunt plugins preconfigured.
+						We also have a <a href="http://intranet.hansoninc.local/display/design/Grunt">wiki article</a> that has info about downloading and installing grunt.
+					</li>
+					<li>In conclusion, Grunt is super awesome. Warren will be giving a presentation on some of the specific plugins we&rsquo;ve been using and how Grunt has transformed our workflow in the near future.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Bower</h1>
+				<ul>
+					<li>
+						<img class="pull-right" src="img/bower-logo.png" alt="Bower logo" style="width: 25%; margin-left: 0.25em;"/>
+						<blockquote>&ldquo;Bower is a package manager for the web. It offers a generic, unopinionated solution to the problem of front-end package management.&rdquo;</blockquote>
+					</li>
+					<li>
+						Bower can be used to add specific libraries to your site, including Bootstrap, jQuery, jQuery UI, and many others. Install it like this:
+						<pre class="medium"><code>npm install -g bower</code></pre>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Bower</h1>
+				<ul>
+					<li>
+						Now you can install packages like this:
+						<pre class="medium"><code>bower install jquery</code></pre>
+					</li>
+					<li>
+						If you want a specific version of a plugin, it looks like this:
+						<pre class="medium"><code>bower install jquery#1.9</code></pre>
+					</li>
+					<li>You can configure Bower with a little JSON file called <code>.bowerrc</code>. The only useful
+						setting I see is the directory setting to control where Bower puts your various things.</li>
+					<li>A directory of everything you can install with Bower is here: <a href="http://sindresorhus.com/bower-components/">http://sindresorhus.com/bower-components/</a></li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Yeoman</h1>
+				<ul>
+					<li>
+						<img class="pull-right" src="img/yeoman-logo.png" alt="Yeoman logo" style="width: 25%; position: relative; margin-top: -1em; margin-right: 1em;" />
+						Yeoman is a project scaffolding system. It can give you a fresh HTML5 boilerplate or Bootstrap scaffolding.</li>
+					<li>Install Yo like so:
+						<pre class="medium"><code>npm install -g yo</code></pre></li>
+					<li>To use Yeoman, you install various <strong>generators</strong>.<br />
+						A generator is a template for creating an application, like a Bootstrap 3 app or an AngularJS app.</li>
+					<li> Here is a very long list of generators:
+						<a href="http://yeoman.io/community-generators.html">http://yeoman.io/community-generators.html</a></li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Yeoman</h1>
+				<ul>
+					<li>Let&rsquo;s say I want a fresh Bootstrap application. I open up my console, navigate to my project&rsquo;s root directory, and type this:
+						<pre class="medium"><code>yo bootstrap</code></pre></li>
+					<li>Yeoman asks me some questions and generates a scaffolding.</li>
+					<li>Fun fact, Yeoman uses Bower to grab and install libraries, so if you have a <code>.bowerrc</code>
+						file set up for your project, Yeoman will place dependencies there.</li>
+				</ul>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h1>What did we learn?</h1>
+				<ul>
+					<li class="fragment">A little about Javascript, its past, present and future</li>
+					<li class="fragment">Some patterns for emulating classical object-orientation in Javascript</li>
+					<li class="fragment">Two new starting points for developing multi-page applications</li>
+					<li class="fragment">Some interesting build tools to make your life easier</li>
+				</ul>
+			</section>
+			<section>
+				<img src="img/endut__hoch_hech_by_samomd-d43ukyc.jpg" style="width: 80%" alt=""/>
+				<h1>Questions?</h1>
+			</section>
+		</section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
+
+<script>
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+			{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		]
+	});
+
+	$(document).ready(function() {
+		$('a[href^=http]').attr('target', '_blank');
+	});
+
+</script>
+
+</body>
+</html>
+<html lang="en">

@@ -1,0 +1,617 @@
+<section>
+# Better living through JavaScript
+![ ](http://i.imgur.com/J9nD25g.jpg)
+
+[Hanson Inc logo]
+[TWP logo]
+</section>
+
+<section>
+Introduction
+Who am I
+What am I doing up here
+</section>
+
+<!--
+With so many great tools available to front-end web developers these days it
+can sometimes be difficult to understand how they all fit together. Deciding on
+a workflow that you’re happy with is often a very personal endeavor, but getting
+started isn’t always easy.
+
+Both enterprises and start-ups will need to take advantage of these tools as the
+demand for features and quick delivery rises. Building applications with these
+tools can speed development and deployment, simplify project organization, and
+automate repetitive tasks allowing developers to focus on core features.
+
+We'll be following Hanson as they review a dizzying array of projects with advanced
+front-end JavaScript components and discuss about how they're improving their
+workflow with tools like Node/NPM, Grunt, Yeoman, Bower, Require.js, and Handlebars.
+
+not about just writing a script
+creating a robust architecture
+make sense of the incredibly complex world of front-end dev
+
+much wider range of technologies to understand
+to be proficient
+not just knowing CSS and HTML and maybe some JS
+both HTML and CSS have gotten more complex
+but also expected to have knowledge of programming
+the web is getting more powerful (natively)
+
+-->
+
+<section>
+Section 1: automate common tasks</section>
+
+<section>
+# Section 2: Improve code structure and quality
+- project structure
+- dependency management
+- separation of concerns
+- documentation
+</section>
+
+<section>
+# Part 1: The future is now
+## Employ robots
+![ ](http://i.imgur.com/TkFLs67.jpg)
+
+- Some day, the robots will rise up and kill all humans
+- Until then, don't waste time
+- Use robot power to help you work faster and create better structured, more maintainable projects
+- I for one welcome our new robot overlords
+</section>
+
+<section>
+# Common build tasks
+- downloading libraries and assets
+- writing boilerplate
+- compiling things
+- compiling things again
+- testing locally
+- optimization
+</section>
+
+<section>
+# fix one problem at a time
+</section>
+
+<section>
+# The good news
+- You don't need to know *that* much JavaScript
+- You certainly don't have to be a programmer
+- You should know a little about using the command line
+</section>
+
+<section>
+# Get the tools
+- Git
+- Node.js
+- NPM
+</section>
+
+
+<section>
+# Git
+Most of the libraries you'll be using are stored in Git repos.
+
+If you don't already have it, get it here: [http://git-scm.com/downloads]()
+
+Notes about where to go to learn some Git basics
+</section>
+
+<section>
+# Node.js
+![Node.js logo](img/nodelogo.png")
+
+- [Node.js](http://nodejs.org) is a standalone Javascript runtime based on Google&rsquo;s V8 engine. It can be used to build web servers and other networky things.
+- it is the must-have command line tool for the serious Javascript developer.
+- Node and its sister tool <strong>npm</strong> are the foundation for many other totally sweet JS tools.
+</section>
+
+<section>
+# NPM
+![NPM logo](img/npm-logo.png)
+
+- NPM is a package manager for node. You might think it stands for “Node package manager”, but you would be wrong. According to the author:
+- *“Contrary to the belief of many, "npm" is not in fact an abbreviation for "Node Package Manager". It is a recursive bacronymic abbreviation for "npm is not an acronym".”*
+</section>
+
+<section>
+# Windows user pro-tip:
+- If you're on Windows, get GNUWin32: [http://getgnuwin32.sourceforge.net/]()
+- It's mighty Unix-y round these parts
+</section>
+
+<section>
+# The NPM registry
+Lots of cool and very smart people publish Node JS modules to the NPM registry. Once you have installed Node and NPM, you can do things like this from the command line:
+
+```npm install underscore```
+
+That will install underscore to the current folder.
+
+You can install things globally like so:
+
+```npm install -g bower```
+</section>
+
+<section>
+# Problem: downloading libraries and assets
+How do you get libraries into your project?
+
+1. Open web browser
+2. Google name of project
+3. Browse to project home page or Github
+4. Download ZIP file, or grab git link
+5. Clone/unzip project files to project directory
+6. Grab the one stupid file you need and copy it somewhere
+7. Insert reference to script/library in your project
+8. Repeat 14 more times
+</section>
+
+npm installs to the folder where you run it unless you use the -g flag
+
+<section>
+# Solution: Bower
+![ ](img/bower-logo.png)
+
+- “Bower is a package manager for the web. It offers a generic, unopinionated solution to the problem of front-end package management.”
+- Bower can be used to add code libraries to your site
+- Get it from NPM
+
+```npm install -g bower```
+</section>
+
+<section>
+# New process
+1. ```bower init```
+2. ```bower search <library-name>```
+3. ```bower install <library1> <library2> <library3> <library4> --save```
+check on --save flag
+4. Insert references
+5. Take a nap
+
+Bower puts everything into bower_components. Be aware.
+
+Later we'll look at a way you can skip step 4 and be napping that much sooner.
+</section>
+
+<section>
+# More Bower goodness
+- If you want a specific version of a plugin, use this syntax
+
+```bower install jquery#1.9```
+check on that
+
+- You can configure Bower with a little JSON file called .bowerrc. The only useful setting I see is the directory setting to control where Bower puts your various things.
+- A directory of everything you can install with Bower is here: [http://sindresorhus.com/bower-components/]()
+</section>
+
+<section>
+# Bower pro-tip
+- Bower pulls down entire Git repos. This often includes development and distribution copies of libraries.
+- Use `bower list --paths` to find the "main" distributable file for each library.
+</section>
+
+<!--
+<section>
+# To --save or --save-dev
+- --save and --save-dev mark libraries as dependencies
+in your package.json file.
+- People who just want to use your library (not modify it) can use the --production flag to not download dev dependencies.
+- If a library is required for your package to
+run, use --save
+- If a library is only required for someone who
+wants to compile your package, use --save-dev
+</section>
+-->
+
+<section>
+# Sharing the wealth
+- There's a debate about whether you should check NPM and Bower libraries into source control.
+- It's a lot of files, and it's not strictly necessary.
+- As long as you're using `--save` or `--save-dev`, all your npm dependencies get written to your package.json file.
+- Everything you install gets written to your
+bower.json file.
+- The next developer that comes along gets to run these two commands:
+
+```npm install
+bower install```
+
+- Theoretically, GitHub could be down or something and the next developer would be very sad.
+</section>
+
+<section>
+# Problem: Repetitive build tasks
+</section>
+
+<section>
+# Solution: Grunt.js and Gulp.js
+![ ](img/grunt.png)
+![ ](img/gulp.png)
+
+Grunt and Gulp are task runners.
+</section>
+
+<section>
+# Here are some repetitive tasks you do during the course of a build.
+
+- Compile LESS/Sass/Stylus files to CSS
+- Concatenate/minify/transpile JavaScript
+- Optimize images
+- Copy assets from one folder to another
+- Composite together HTML templates and include files
+- Start a local web server
+- Reload your browser
+</section>
+
+if you're not using something to automate these, you should be
+
+<section>
+# Task runners can take care of all of these things for you.
+</section>
+
+<section>
+# Installing Grunt
+Start by installing the grunt-cli npm package:
+
+```npm install -g grunt-cli```
+
+Now you can run the `grunt` command from any directory.
+
+Grunt needs an instruction file called Gruntfile.js to tell it what to do next.
+</section>
+
+<section>
+# Installing Gulp
+
+- Grunt has gruntfile.js. Gulp has gulpfile.js.
+- Gruntfiles provide configuration in the form of deep objects. The action happens inside the plugins.
+- Gulpfiles contain little procedural programs that chain together the output of many single-purpose plugins.
+</section>
+
+<section>
+# Gulp
+**Streams**
+</section>
+
+
+<section>
+# Compile LESS
+Compile LESS
+LESS on the left
+CSS on the right
+
+</section>
+
+<section>
+# Concat JS
+Concat JS
+Split screen
+</section>
+
+<section>
+# Optimize images
+Optimize images
+Drag images in, run imageoptim, show output
+</section>
+
+<section>
+# Grunt bake
+Grunt bake
+Split screen
+</section>
+
+<section>
+# Grunt watch
+Grunt watch
+</section>
+
+<section>
+# Grunt connect
+Grunt connect
+Have window in background
+Make sure live reload is enabled
+</section>
+
+<section>
+# And more!
+The list of gruntJS plugins is disgustingly long: [http://gruntjs.com/plugins]()
+</section>
+
+<section>
+# Grunt or Gulp?
+- Doesn't matter. Different approaches but both are good.
+- Grunt is older and has a larger ecosystem, but Gulp is catching up fast
+</section>
+
+<section>
+# That Bower pro-tip I promised
+- Use [grunt-bower-concat](https://www.npmjs.org/package/grunt-bower-concat) to copy and concatenate all your Bower dependencies into a single file.
+- grunt-bower-concat grabs the main file from each
+Bower package (plus anything else you tell it to grab) and concatenates it into single file
+- You can create sub-tasks to compile subsets of dependencies
+- See also: [https://github.com/yatskevich/grunt-bower-task](), [https://github.com/blittle/bower-installer]()
+</section>
+
+<section>
+# Problem: Scaffolding a new project
+</section>
+
+<section>
+# Solution: Yeoman
+![ ](img/yeoman-logo.png)
+- Yeoman is a project scaffolding system. It can give you a fresh, clean project structure for many types of apps
+- Install Yo like so:
+
+``npm install -g yo````
+
+- To use Yeoman, you install various generators.
+- A generator is a template for creating an application, like a Bootstrap 3 app or an AngularJS app.
+- Here is a very long list of generators: http://yeoman.io/community-generators.html
+</section>
+
+<section>
+# Installing a generator
+npm install -g generator-hi-five
+</section>
+
+<section>
+# Demo project setup
+</section>
+
+<section>
+# Most Yeoman generators have Bower and Grunt integration already built in!
+or is it all?
+</section>
+
+<section>
+# Demo workflows with Prophet site
+- Demo LESS, local web server w/live reload
+- Demo Grunt bake
+- Demo image optimization
+- Demo RequireJS build?
+covered already?
+</section>
+
+<section>
+# Part 2: Improving code quality
+</section>
+
+<section>
+# Dependency management
+</section>
+
+<section>
+# Why dependency management?
+- Script tags are not a dependency management strategy
+- “[D]ependencies [in JavaScript] are very weakly stated: the developer needs to know the right dependency order. For instance, The file containing Backbone cannot come before the jQuery tag.”
+- Discrete classes = looser coupling, better maintainability and encapsulation
+- The more classes you have, the more likely you are to run into out-of-order dependencies
+</section>
+
+<section>
+# Some options
+## CommonJS modules
+- Developed as part of a larger project to separate Javascript from the browser
+- Popular implementation is Browserify
+- Synchronous
+- Not particularly browser-friendly
+## Asynchronous Module Definition (AMD)
+- Developed to address shortcomings in CommonJS modules
+- Popular implementation is Require.js -- list others
+- Asynchronous, well-suited for web use
+- We’ve used it successfully on many projects
+</section>
+
+<section>
+# About require.js
+![Require.js](img/requirejs.png)
+
+- *“Require.js is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node. Using a modular script loader like Require.js will improve the speed and quality of your code.”*
+- Require.js helps you manage dependencies so you don’t have to worry about the order in which scripts are loaded
+- Has a powerful build process so you can deploy pre-built versions of your script to production.
+```bower install requirejs```
+</section>
+
+<section>
+# About require.js
+- Require.js has two basic methods, require() and define().
+- `require()` loads scripts asynchronously based on a slash-separated path, like this:
+```require("APP/controllers/main");```
+- `define()` exports Javascript modules in such a way that require can keep track of them. Require.js keeps a registry of modules it’s already loaded, so if you need a class more than once it isn’t loaded multiple times.
+</section>
+
+<section>
+# What about non-AMD libraries?
+- No problem. Require.js’s config file allows you to shim non-AMD Javascript. Shimming looks like this:
+```
+shim: {
+    'lib/jqueryui': {
+        deps: ['lib/jquery']
+    }
+}
+```
+- Now I can require('lib/jqueryui') in my classes, and it will added the AMD registry. Require will also make sure all dependencies are loaded when this one is requested.
+</section>
+
+<section>
+# Demo require.js setup on the Prophet
+</section>
+
+<section>
+# Loader plugins
+- “Require.js supports loader plugins. This is a way to support dependencies that are not plain JS files, but are still important for a script to have loaded before it can do its work. The Require.js wiki has a list of plugins. This section talks about some specific plugins that are maintained alongside Require.js:”
+- Example, The text loader plugin:
+```require('text!templates/applyProducts/_products-line.hbs');```
+- This plugin can be used to load plain text files into a Javascript variable.
+- Full list of plugins here [https://github.com/jrburke/Require.js/wiki/Plugins]()
+</section>
+
+<section>
+# Building and deploying require.js
+- The Require.js optimizer combines related scripts together into build layers and minifies them with UglifyJS or Closure Compiler.
+- It scans your require() statements, loads all the dependencies and inlines them into the top of the file. Then it minifies everything and outputs it to a directory of your choosing (we prefer js-built).
+- This makes it trivial to select the /content/js directory (for dev) or /content/js-built (for staging and production). Nothing else needs to change in your code or your config!
+</section>
+Plugins to set paths condition -- Warren/
+
+<section>
+# Speed improvements
+- Unbuilt JS:
+![ ](img/unbuilt.jpg)
+- Built JS:
+![ ](img/built.jpg)
+Generate new graphics
+</section>
+
+<section>
+# Integrating with a build process
+- The Require.js optimizer can be run as a build task with node or with Rhino for Java. Node is much, much faster. On Menards Shelving, the Require.js build takes ~60 seconds locally with Node, but over 10 minutes(!!) when run as part of the build using Rhino.
+- To improve performance, set skipDirOptimize: true, and minify your third-party JS libraries some other way.
+</section>
+
+<section>
+# Separation of concerns
+## Eww, there's HTML in my JavaScript
+</section>
+
+<section>
+# Solution: Handlebars.js
+</section>
+
+<section>
+# Why a templating engine
+- The past - building from strings etc.
+- Makes maintenance difficult
+- Any kind of logic (repeaters, conditionals) means lots of procedural code
+- Invites designers to gets all up in your JS
+- Invites engineers to write HTML
+- Just feels ugly and wrong
+</section>
+
+<section>
+# A simple inline Handlebars template
+- Script tag
+- Model object
+</section>
+
+<section>
+# Merge them together
+- Code example
+</section>
+
+<!--
+<section>
+# Working with more complex objects
+- Dot notation example
+</section>
+-->
+
+<section>
+# Loops
+- Template example
+</section>
+
+<section>
+# Partials
+- Template example
+</section>
+
+<section>
+# Conditionals
+- Template example
+</section>
+
+<!--
+<section>
+# Custom helpers
+- Code example
+</section>
+-->
+
+<section>
+# Show example from Design EyeQ
+- Touch on .hbs structure
+- Show loading in templates with require loader plugin
+Show working example in DEQ?
+</section>
+
+<section>
+# Improving documentation
+reinforce notion that you need to comment things
+why comments
+multiple developers
+you in six months
+
+think about how to use robots
+robots take your comments and make them robot-ier
+</section>
+
+<section>
+# Solution: JSDoc
+</section>
+
+<section>
+# About JSDoc
+- JSDoc ([http://usejsdoc.org/]()) is a tool for generating HTML documentation from structured JavaScript comments
+- JSDoc 3.3 runs in Node.js (or Mozilla Rhino) and can be installed with npm
+```npm install -g jsdoc```
+- Once installed, navigate to where your JS files are located in a terminal and run this command:
+```jsdoc -r .```
+</section>
+
+<section>
+JSDOC SYNTAX
+- Syntax is very similar to Javadoc.
+Any comment beginning with /** is interpreted as a JSDoc comment.
+// not picked up by JSdoc
+/* not picked up by JSdoc */
+/** Hello JSdoc */
+Don't put everything in your JSdoc
+You can add meaning with tags
+There are many tags beginning with
+@ that help make your docs better.
+/**
+ * @constructor
+ * @alias MEN.ui.configurator.VizProduct
+ * @extends MEN.ui.configurator.VizItem
+ @param {String} mything
+ @param {Boolean} [isTrue=false]
+ @requires
+ @returns {Object}
+ * @classdesc A component of a design, such as a shelf, basket or
+   upright. VizProducts can be manipulated and resized
+ * by users and can have rules applied to them.
+ */
+There are lots of ways to document common patterns.
+links
+</section>
+
+<section>
+Default template
+</section>
+
+<section>
+# Get a better JSDoc template with DocStrap
+Instructions for installing DocStrap
+</section>
+
+<section>
+what do we hope you've learned
+ways to save time
+a little about some of the common tools that are out there
+motivation
+solutions to common problems
+
+</section>
+
+<section>
+# Questions?
+</section>
+
+<section>
+contact info
+list of resources
+</section>

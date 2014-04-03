@@ -248,8 +248,23 @@ body {
 	list-style-type: disc;
 }
 
+.reveal li {
+	font-family: "Open Sans";
+	color: #333;
+
+	margin-bottom: 0.25em;
+}
+
 .reveal ul ul {
 	list-style-type: square;
+	margin-top: 0.2em;
+	padding-left: 1em;
+}
+
+.reveal ul ul li {
+	font-size: 0.8em;
+	font-family: "Open Sans Light";
+	line-height: 1.3;
 }
 
 .reveal ul ul ul {
@@ -277,13 +292,10 @@ body {
 .reveal blockquote {
 	display: block;
 	position: relative;
-	width: 70%;
-	margin: 5px auto;
-	padding: 5px;
+	padding: 0.5em;
+	/*margin: 1em 0;*/
 
-	font-style: italic;
-	background: rgba(255, 255, 255, 0.05);
-	box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+	font-family: "Open Sans Light Italic";
 }
 	.reveal blockquote p:first-child,
 	.reveal blockquote p:last-child {
@@ -313,9 +325,10 @@ body {
 	font-family: monospace;
 }
 .reveal pre code {
+	font-size: 1.1em;
 	padding: 5px;
 	overflow: auto;
-	max-height: 400px;
+	//max-height: 400px;
 	word-wrap: normal;
 }
 .reveal pre.stretch code {
@@ -360,6 +373,15 @@ body {
 	max-height: none;
 }
 
+.reveal ul.two-col, .reveal ol.two-col {
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	-ms-column-count: 2;
+	-o-column-count: 2;
+	column-count: 2;
+	-webkit-column-width: 40%;
+	display: block;
+}
 
 /*********************************************
  * CONTROLS
@@ -1651,3 +1673,35 @@ body {
 }
 
 
+.reveal strong {
+	font-family: "Open Sans Bold";
+	font-weight: normal;
+}
+
+.reveal pre.large {
+	font-size: 1.1em;
+}
+
+.reveal pre.large code {
+	padding: 10px;
+}
+
+.reveal pre.medium {
+	font-size: 0.95em;
+}
+
+.reveal pre.large code {
+	padding: 8px;
+}
+
+.reveal .pull-left {
+	float: left;
+	margin-right: 1em;
+}
+
+.reveal .pull-right {
+	float: right;
+	margin-left: 1em;
+}
+
+.reveal .nobr { white-space: nowrap; }
