@@ -305,7 +305,7 @@ make sense of the incredibly complex world of front-end dev
 </section>
 
 
-<section data-background="img/bower-list-paths.png" data-background-size="1150px" data-background-position="200% 15%">
+<section data-background="img/bower-list-paths.png" data-background-size="1150px" data-background-position="140% 25%">
 
     <h1 class="medium pad-top-more">Working with Bower Components</h1>
 
@@ -568,48 +568,61 @@ make sense of the incredibly complex world of front-end dev
 
 <section data-background="rgba(66,164,236,0.5)">
 
-    <h1 class="medium">Solution: Require.js</h1>
-    <img src="img/require-js.png" alt="" style="width: 400px; margin-top: 25px;" />
-    <pre class="medium fragment"><code>&gt; bower install requirejs</code></pre>
+	<h1 class="medium">Solution: Require.js</h1>
+	<img src="img/require-js.png" alt="" style="width: 400px; margin-top: 25px;"/>
+	<pre class="medium fragment"><code>&gt; bower install requirejs</code></pre>
 
-    <aside class="notes">
-        <ul>
-            <li>Require.js is a JavaScript file and module loader.</li>
-            <li>Require.js helps you manage dependencies so you don’t have to worry about the order in which scripts
-                are loaded
-            </li>
-            <li>Has a powerful build process so you can deploy pre-built versions of your script to production.</li>
-            <li>You can install it with Bower (fragment)</li>
-        </ul>
-    </aside>
-
+	<aside class="notes">
+		<ul>
+			<li>Require.js is a JavaScript file and module loader.</li>
+			<li>Require.js helps you manage dependencies so you don’t have to worry about the order in which scripts
+				are loaded
+			</li>
+			<li>Has a powerful build process so you can deploy pre-built versions of your script to production.</li>
+			<li>You can install it with Bower (fragment)</li>
+		</ul>
+	</aside>
 </section>
 
-<section data-markdown>
-	# About require.js
-	- Require.js has two basic methods, require() and define().
-	- `require()` loads scripts asynchronously based on a slash-separated path, like this:
-	```require("APP/controllers/main");```
-	- `define()` exports Javascript modules in such a way that require can keep track of them. Require.js keeps a
-	registry of modules it’s already loaded, so if you need a class more than once it isn’t loaded multiple times.
+<section>
+	<h1>Two important methods</h1>
+
+	<p><code>require()</code> and <code>define()</code></p>
+
+	<aside class="notes">
+		<ul>
+			<li>Require.js has two basic methods, require() and define().</li>
+			<li>`require()` loads scripts asynchronously based on a slash-separated path, like this:</li>
+			<li>```require("APP/controllers/main");```</li>
+			<li>`define()` exports Javascript modules in such a way that require can keep track of them. Require.js
+				keeps a
+			</li>
+			<li>registry of modules it’s already loaded, so if you need a class more than once it isn’t loaded multiple
+				times.
+			</li>
+		</ul>
+	</aside>
 </section>
 
-<section data-markdown>
-	# What about non-AMD libraries?
-	- No problem. Require.js’s config file allows you to shim non-AMD Javascript. Shimming looks like this:
-	```
-	shim: {
-	'lib/jqueryui': {
-	deps: ['lib/jquery']
-	}
-	}
-	```
-	- Now I can require('lib/jqueryui') in my classes, and it will added the AMD registry. Require will also make sure
-	all dependencies are loaded when this one is requested.
-</section>
+<section data-background="img/shim.png" data-background-size="1100px" data-background-position="100% 50%">
+	<h1 class="medium white shadow full-width translucent-background pad-top-more">What about<br />non-AMD libraries?</h1>
 
-<section data-markdown>
-	# Demo require.js setup on the Prophet
+	<aside class="notes">
+		<ul>
+			<li>No problem. Require.js’s config file allows you to shim non-AMD Javascript. Shimming looks like this:
+			</li>
+			<li>Now I can require('lib/jqueryui') in my classes, and it will added the AMD registry. Require will also make sure
+				all dependencies are loaded when this one is requested.</li>
+		</ul>
+		```
+		shim: {
+		'lib/jqueryui': {
+		deps: ['lib/jquery']
+		}
+		}
+		```
+
+	</aside>
 </section>
 
 <section data-markdown>
@@ -633,20 +646,25 @@ make sense of the incredibly complex world of front-end dev
 	production). Nothing else needs to change in your code or your config!
 </section>
 
-<section data-markdown>
-	# Speed improvements
-	- Unbuilt JS:
-	![ ](img/unbuilt.jpg)
-	- Built JS:
-	![ ](img/built.jpg)
-	Generate new graphics
+<section>
+	<h1 class="medium white">Speed improvements</h1>
+	<img src="img/built-unbuilt.png" alt=""/>
 
     <aside class="notes">
-        # Integrating with a build process
-        - The Require.js optimizer can be run as a build task with node or with Rhino for Java. Node is much, much faster.
-        On Menards Shelving, the Require.js build takes ~60 seconds locally with Node, but over 10 minutes(!!) when run as
-        part of the build using Rhino.
-        - To improve performance, set skipDirOptimize: true, and minify your third-party JS libraries some other way.
+        <p>Building your Require app before deploying it has huge benefits!</p>
+
+		<p>Integrating with a build process</p>
+		<ul>
+			<li>The Require.js optimizer can be run as a build task with node or with Rhino for Java. Node is much,
+				much faster.
+			</li>
+			<li>On one project, the Require.js build takes ~60 seconds locally with Node, but over 10 minutes(!!) when
+				run as part of the build using Rhino.
+			</li>
+			<li>To improve performance, set skipDirOptimize: true, and minify your third-party JS libraries some other
+				way.
+			</li>
+		</ul>
     </aside>
 </section>
 
@@ -655,70 +673,112 @@ make sense of the incredibly complex world of front-end dev
 </section>
 
 <section data-background="rgba(247,147,30,0.5)">
-    <h1 class="medium white">Handlebars.js</h1>
+    <h1 class="medium white">Solution: Handlebars.js</h1>
     <img src="img/handlebars-sticker.png" alt=""/>
+
+	<aside class="notes">
+		Handlebars is a templating engine
+
+		Why do we need a templating engine?
+
+		Web services are a giant step forward in terms of data portability and reusability
+		A big part of that is having lightweight back ends and powerful front ends
+		We're building interfaces on the client side
+
+		In the past, we did this by compositing strings.
+	</aside>
 </section>
 
 <section>
-	# Why a templating engine
-	- The past - building from strings etc.
+	<h1 class="medium pull-top-a-smidge">The old way</h1>
+	<pre class="bigger-than-average pad-top-a-smidge"><code>for (var i in products) {
+  tmpl = '<li class="js-product-line applyProducts js-roofingOption"';
+  tmpl += 'data-id="'+ ProductId + '" data-category="' + Category + '"';
+  tmpl += 'data-name="' + Name + '" data-color-family="' + ColorFamily + '">';
+  tmpl += '<div class="media attribution">';
+  tmpl +=	'<div class="img">';
+  tmpl += '<img src="/Render/Swatch/' + ProductId + '" />';
+  tmpl += '</div>';
+  tmpl += '<div class="bd">';
+  tmpl += '<span class="name"><strong>' + Name + '</strong></span>';
+  tmpl += '<span class="line">{{ProductLine}}</span>';
+  tmpl += '</div>';
+  tmpl += '</div>';
+  tmpl += '</li>';
+}</code></pre>
 
-    <p class="large">ಠ_ಠ</p>
+	<p class="giant fragment">ಠ_ಠ</p>
 
-	- Makes maintenance difficult
-	- Any kind of logic (repeaters, conditionals) means lots of procedural code
-	- Invites designers to gets all up in your JS
-	- Invites engineers to write HTML
-	- Just feels ugly and wrong
+	<aside class="notes">
+		<ul>
+			<li>Makes maintenance difficult</li>
+			<li>Any kind of logic (repeaters, conditionals) means lots of procedural code</li>
+			<li>Invites designers to gets all up in your JS</li>
+			<li>Invites engineers to write HTML</li>
+			<li>Just feels ugly and wrong</li>
+		</ul>
+	</aside>
 </section>
 
-<section data-markdown>
-	# A simple inline Handlebars template
-	- Script tag
-	- Model object
+<section>
+	<h1 class="medium pull-top-a-smidge">The Handlebars way</h1>
+	<pre class="bigger-than-average pad-top-a-smidge"><code>{{#each Products}}
+<li class="js-product-line applyProducts js-roofingOption"
+  data-id="{{ProductId}}" data-category="{{Category}}"
+  data-name="{{Name}}" data-color-family="{{ColorFamily}}">
+  <div class="media attribution">
+    <div class="img">
+      <img src="/Render/Swatch/{{ProductId}}" />
+    </div>
+    <div class="bd">
+      <span class="name"><strong>{{Name}}</strong></span>
+      <span class="line">{{ProductLine}}</span>
+    </div>
+  </div>
+</li>
+{{/each}}</code></pre>
 
-    <p class="large">ʘ‿ʘ</p>
+	<p class="very-large fragment">ʘ‿ʘ</p>
+
+	<aside class="notes">
+		You can put this in a hidden script tag (with a type of x-handlebars-template)
+		But you should put it in an external file and load it however you want
+		Require.js has a loader plugin that will load and parse Handlebars for you
+	</aside>
 </section>
 
-<section data-markdown>
-	# Merge them together
-	- Code example
+<section>
+	<h1 class="medium">Binding data</h1>
+	<pre class="bigger-than-average"><code>var myTemplate = Handlebars.compile(tmpl);
+var modelObject = {
+    Name: 'Berkshire Canterbury Black',
+    ProductLine: 'Berkshire',
+    Category: 'Roofing',
+    ColorFamily: 'Black'
+    ProductID: 'RF106',
+};
+var output = myTemplate(modelObject);
+</code></pre>
+	<aside class="notes">
+		here's an example of how you would bind data to a Handlebars template
+		we've already loaded the string in somewhere
+		We ask Handlebars to compile the string into a template. What this does it make it a function, which takes any JavaScript object and returns HTML
+	</aside>
 </section>
 
-<!--
-<section data-markdown>
-# Working with more complex objects
-- Dot notation example
-</section>
--->
-
-<section data-markdown>
-	# Loops
-	- Template example
+<section>
+	<h1>Now with more logic!</h1>
+	<ul>
+		<li>Loops!</li>
+		<li>Partials!</li>
+		<li>Conditionals!</li>
+		<li>Custom helpers!</li>
+	</ul>
 </section>
 
-<section data-markdown>
-	# Partials
-	- Template example
-</section>
-
-<section data-markdown>
-	# Conditionals
-	- Template example
-</section>
-
-<!--
-<section data-markdown>
-# Custom helpers
-- Code example
-</section>
--->
-
-<section data-markdown>
-	# Show example from Design EyeQ
-	- Touch on .hbs structure
-	- Show loading in templates with require loader plugin
-	Show working example in DEQ?
+<section data-background="img/deq.png" data-background-position="100% 65%" data-background-size="1100px">
+	<h1 class="small white pull-top-like-whoa shadow translucent-background full-width">Owens Corning Design EyeQ&reg;</h1>
+	<a href="http://designeyeq.owenscorning.com/DesignTool/" target="_blank" class="full-screen"></a>
 </section>
 
 <section data-background="img/cockpit.jpg">
@@ -785,8 +845,8 @@ make sense of the incredibly complex world of front-end dev
 
 </section>
 
-<section data-background="img/jsdoc-default.jpg" data-background-size="88%" data-background-position="bottom right">
-    <pre class="large pad-top-even-more"><code class="semi-transparent">jsdoc -r .</code></pre>
+<section data-background="img/jsdoc-default.jpg" data-background-size="1050px" data-background-position="bottom right">
+    <h1 class="medium white shadow pad-top-even-more full-width translucent-background">JSDoc Default Template</h1>
 
     <aside class="notes">
         Let's look at that default template
@@ -797,11 +857,11 @@ make sense of the incredibly complex world of front-end dev
 
 <section>
     <h1 class="big white">Use DocStrap instead</h1>
-    <pre class="medium"><code>&gt; npm install ink-docstrap</code></pre>
+    <pre class="medium pad-top-a-little"><code>&gt; npm install ink-docstrap</code></pre>
 </section>
 
-<section data-background="img/jsdoc-docstrap.jpg" data-background-size="88%" data-background-position="bottom right">
-    <pre class="medium pad-top-even-more"><code class="semi-transparent">&gt; jsdoc -t node_modules\ink-docstrap\template -r .</code></pre>
+<section data-background="img/jsdoc-docstrap.jpg" data-background-size="1050px" data-background-position="bottom right">
+	<h1 class="medium white shadow pad-top-even-more full-width translucent-background">DocStrap Template</h1>
 
     <aside class="notes">
         Fortunately we have a solution
@@ -810,6 +870,7 @@ make sense of the incredibly complex world of front-end dev
         It's in npm
         npm install ink-docstrap
 
+		Includes a nice pulldown top menu, search, and a fixed navigation bar in every class and module
     </aside>
 </section>
 
