@@ -126,6 +126,10 @@ body {
 	padding-top: 1.5em;
 }
 
+.reveal .pad-top-a-little-more {
+	padding-top: 2.5em;
+}
+
 .reveal .pad-top-more {
 	padding-top: 3.75em;
 }

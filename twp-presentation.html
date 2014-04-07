@@ -119,6 +119,14 @@ make sense of the incredibly complex world of front-end dev
     </aside>
 </section>
 
+<section data-background="img/command-line.png" data-background-position="250% 35%" data-background-size="1150px">
+    <h1 class="medium white shadow pad-top-a-little-more">Embrace the command line</h1>
+    <aside class="notes">
+        http://wiseheartdesign.com/articles/2010/11/12/the-designers-guide-to-the-osx-command-prompt/
+        http://webdesign.tutsplus.com/articles/a-designers-introduction-to-the-command-line--webdesign-6358
+    </aside>
+</section>
+
 <section>
     <img src="img/windows.png" style="height: 350px;" alt="" class="pull-top-a-bit-more"/>
     <h1 style="padding-top: 0.25em;">A note for Windows users</h1>
@@ -226,8 +234,8 @@ make sense of the incredibly complex world of front-end dev
 	<pre class="large"><code>&gt; npm install -g grunt-cli</code></pre>
 </section>
 
-<section data-background="img/moonrocket.jpg">
-	<h1 class="big white shadow pull-top">Enough talk, let&rsquo;s poke moon rocks</h1>
+<section data-background="img/ridingrocket.jpg">
+	<h1 class="big white shadow pad-top-more">Enough talk, <span class="nobr">TO THE MOON!</span></h1>
 
 	<aside class="notes">
         Shuttle:
@@ -256,7 +264,7 @@ make sense of the incredibly complex world of front-end dev
         <li>Unzip project files</li>
         <li>Grab the file(s) you need and copy to your lib directory</li>
         <li>Insert script reference in your project</li>
-        <li><em>Repeat 14 more times</em></li>
+        <li><em>Repeat 12 more times</em></li>
     </ol>
 </section>
 
@@ -277,9 +285,9 @@ make sense of the incredibly complex world of front-end dev
 
 <section data-background="img/missioncontrol.jpg">
     <h1 class="medium white shadow pull-top-more">The Bower Way</h1>
-     <pre class="medium"><code>&gt; bower init
+     <pre class="bigger-than-average"><code>&gt; bower init
 &gt; bower search library-name
-&gt; bower install library1 library2 library3</code></pre>
+&gt; bower install library1 library2 --save</code></pre>
 
     <aside class="notes">
 
@@ -297,22 +305,20 @@ make sense of the incredibly complex world of front-end dev
 </section>
 
 
-<section>
-	<h1>Working with bower_components</h1>
-    <ul>
-        <li>Bower pulls down entire Git repos. You probably won't want everything.</li>
-        <li>Use <code>bower list --paths</code> to find the main distributable file(s) for each library.</li>
-    </ul>
+<section data-background="img/bower-list-paths.png" data-background-size="1150px" data-background-position="200% 15%">
 
-    <pre class="small"><code class="json">&gt; bower list --paths
-
-  {
-    "fittext": "bower_components/fittext"
-  }</code></pre>
-
-    @TODO: replace this
+    <h1 class="medium pad-top-more">Working with Bower Components</h1>
 
     <aside class="notes">
+        <ul>
+            <li>Bower pulls down entire Git repos. You probably won't want everything.</li>
+            <li>Use <code>bower list --paths</code> to find the main distributable file(s) for each library.</li>
+        </ul>
+
+        {
+        "fittext": "bower_components/fittext"
+        }
+
         From here you can copy the main files to wherever you want them in the project
 
         Later we'll look at a way you can concatenate all your Bower dependencies into one or more files so you don't have to
@@ -369,7 +375,7 @@ make sense of the incredibly complex world of front-end dev
         Grunt needs an instruction file called Gruntfile.js to tell it what to do next.
 
         # Installing Gulp
-
+        - Install the gulp package
         - Grunt has gruntfile.js. Gulp has gulpfile.js.
         - Gruntfiles provide configuration in the form of deep objects. The action happens inside the plugins.
         - Gulpfiles contain little procedural programs that chain together the output of many single-purpose plugins.
@@ -419,14 +425,33 @@ make sense of the incredibly complex world of front-end dev
     </aside>
 </section>
 
-<section data-markdown>
-	# That Bower pro-tip I promised
-	- Use [grunt-bower-concat](https://www.npmjs.org/package/grunt-bower-concat) to copy and concatenate all your Bower
-	dependencies into a single file.
-	- grunt-bower-concat grabs the main file from each
-	Bower package (plus anything else you tell it to grab) and concatenates it into single file
-	- You can create sub-tasks to compile subsets of dependencies
-	- See also: [https://github.com/yatskevich/grunt-bower-task](), [https://github.com/blittle/bower-installer]()
+<section data-background="rgba(251,169,25,0.45)">
+	<h1 class="medium">Grunt + Bower Goodness</h1>
+
+    <ul class="unstyled two-up">
+        <li><span class="img-align"><img src="img/grunt-logo.png" alt="Grunt" style="margin-left: 100px;"/></span><!--<h2><a href="http://gruntjs.com/getting-started">Grunt</a></h2>-->
+        </li>
+        <li><span class="img-align"><img src="img/bower-logo.png" alt="Gulp" style="margin-right: 100px;"/></span><!--<h2><a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp</a></h2>-->
+        </li>
+    </ul>
+
+    <pre class="medium fragment pull-top"><code>&gt; npm install grunt-bower-concat</code></pre>
+
+    <aside class="notes">
+        <p>That Bower pro-tip I promised</p>
+        <ul>
+            <li>Use [grunt-bower-concat](https://www.npmjs.org/package/grunt-bower-concat) to copy and concatenate all
+                your Bower dependencies into a single file. (fragment)
+            </li>
+            <li>grunt-bower-concat grabs the main file from each Bower package (plus anything else you tell it to grab)
+                and concatenates it into single file
+            </li>
+            <li>You can create sub-tasks to compile subsets of dependencies</li>
+            <li>See also: [https://github.com/yatskevich/grunt-bower-task](),
+                [https://github.com/blittle/bower-installer]()
+            </li>
+        </ul>
+    </aside>
 </section>
 
 <section data-background="img/shuttle.jpg">
