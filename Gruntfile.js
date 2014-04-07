@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 					keepalive: true,
 					livereload: true,
 					base: '.',
-					hostname: '*'
+					hostname: 'localhost'
 				}
 			}
 		},
@@ -100,13 +100,19 @@ module.exports = function(grunt) {
 
 		watch: {
 			main: {
-				files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css' ],
+				files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css', 'css/ohiodave.css' ],
 				tasks: 'default'
 			},
 			theme: {
 				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
 				tasks: 'themes'
-			}
+			},
+            html: {
+                files: ['twp-presentation.html'],
+                options: {
+                    livereload: true
+                }
+            }
 		},
 
 		bower_concat: {
@@ -142,6 +148,8 @@ module.exports = function(grunt) {
 
 	// Default task
 	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit' ] );
+
+    grunt.registerTask( 'nothin', [ ] );
 
 	// Theme task
 	grunt.registerTask( 'themes', [ 'sass' ] );

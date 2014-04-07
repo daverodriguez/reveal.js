@@ -40,10 +40,13 @@ body .small {
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
+
 body {
-	background: #f8f8f8;
-	background-color: #f8f8f8;
+	/*background: #f8f8f8;
+	background-color: #f8f8f8;*/
 	color: #555555;
+
+
 }
 
 .reveal {
@@ -51,7 +54,13 @@ body {
 	font-size: 36px;
 	font-weight: 200;
 	letter-spacing: -0.02em;
-	color: #555555;
+	/*color: #555555;*/
+	color: #f8f8f8;
+
+	background: #000 url(/img/moonrise.jpg) 50% 115% no-repeat;
+	margin-bottom: -5%;
+	background-size: 100%;
+
 }
 
 ::selection {
@@ -70,7 +79,9 @@ body {
 .reveal h5,
 .reveal h6 {
 	margin: 0 0 20px 0;
-	color: #555555;
+	/*color: #555555;*/
+	color: #f8f8f8;
+
 	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 700;
 	line-height: 1.1;
@@ -125,6 +136,10 @@ body {
 
 .reveal .pull-top {
 	margin-top: -1.75em;
+}
+
+.reveal .pull-top-a-bit-more {
+	margin-top: -2.75em;
 }
 
 .reveal .pull-top-more {
@@ -236,7 +251,7 @@ body {
 }
 
 .reveal .progress span {
-	background: darkblue;
+	background-color: #00a5d7;
 	-webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
 	-moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
 	-ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -248,6 +263,14 @@ body {
 	font-size: 1.2em;
 }
 
+.reveal .bigger-than-average {
+	font-size: 0.8em;
+}
+
+.reveal .extra-large {
+	font-size: 1.5em;
+}
+
 .footnote {
 	font-size: 0.75em;
 	font-style: italic;
@@ -256,7 +279,8 @@ body {
 /** Lists */
 .reveal li {
 	font-family: 'Source Sans Pro';
-	color: #555555;
+	/*color: #555555;*/
+	color: #f8f8f8;
 }
 
 .reveal ul.unstyled, .reveal ol.unstyled {
@@ -325,4 +349,20 @@ body {
 
 .reveal .nobr {
 	white-space: nowrap;
+}
+
+/** Code */
+
+.reveal .javadoctag {
+	color: #fff;
+}
+
+.reveal .semi-transparent {
+	background: rgba(39,40,34,0.7);
+}
+
+.reveal .fixed {
+	position: fixed;
+	left: 0;
+	right: 0;
 }
