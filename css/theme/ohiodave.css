@@ -142,6 +142,10 @@ body {
 	margin-top: 4.75em;
 }
 
+.reveal .pad-top-like-whoa {
+	margin-top: 5.5em;
+}
+
 .reveal .pull-top-a-smidge {
 	margin-top: -1em;
 }
@@ -306,8 +310,8 @@ body {
 
 .reveal ul.unstyled, .reveal ol.unstyled {
 	list-style: none;
-	margin: 0;
-	padding: 0;
+	margin-left: 0;
+	padding-left: 0;
 }
 
 .reveal ul.unstyled li, .reveal ol.unstyled li {
@@ -342,6 +346,16 @@ body {
 .reveal li pre {
 	width: auto;
 	margin-left: -1em;
+}
+
+.reveal ul.inline li {
+	display: inline-block;
+	padding: 0.5em 0.5em;
+}
+
+.reveal ul.alternating li:nth-child(2n) {
+	font-weight: 700;
+	color: rgba(255,255,255,0.4);
 }
 
 /** Misc */
@@ -399,6 +413,14 @@ body {
 	margin-right: -50%;
 }
 
+.reveal .pretty-large {
+	font-size: 1.75em;
+}
+
+.reveal .quite-large {
+	font-size: 2.75em;
+}
+
 .reveal .very-large {
 	font-size: 4em;
 }
@@ -413,4 +435,25 @@ body {
 	position: absolute;
 	display: block;
 	/*outline: 1px solid red;*/
+}
+
+.reveal .centered {
+	text-align: center;
+}
+
+.reveal a.credit {
+	display: block;
+	position: sticky;
+	bottom: 0;
+	left: -60px;
+	font-size: 0.5em;
+	font-style: italic;
+	color: rgba(255,255,255,0.8);
+	text-shadow: 2px 2px 3px #000;
+	text-align: left;
+}
+
+.reveal a.credit:hover {
+	text-decoration: underline;
+	color: #fff;
 }
